@@ -1,12 +1,18 @@
-# React + Vite
+## 🛠️ Tech Stack & Design Choices
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### ⚛️ React
+Used for its component-based architecture, allowing clean code organisation and efficient state management—ideal for building dynamic UIs like this vulnerability report form.
 
-Currently, two official plugins are available:
+### Tailwind CSS
+Chosen because it provides a better developer experience by showing all the CSS directly alongside the JSX. This eliminates the need to switch between separate CSS files, making styling faster and more intuitive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Lucide-react
+Provides a component-based icon structure that is easy to implement with React and Tailwind. It’s one of my favourites because it offers better design compatibility with Tailwind’s utility classes and a modern look.
 
-## Expanding the ESLint configuration
+### 🔔 React Hot Toast
+Easy to use and offers pre-made notification components tailored to different message categories (success, error, warning, etc.), which helps improve user feedback with minimal setup.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🆔 nanoid (Why not `Math.random()` or `uuid`?)
+Instead of using `Math.random()` or the more common `uuid` library, I selected `nanoid` for generating unique identifiers for each submitted report. Here's why:
+
+I chose nanoid because it’s secure, faster, smaller than UUID, generates compact unique IDs, and lets me customise length and characters easily.
