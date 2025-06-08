@@ -49,18 +49,18 @@ export default function ReportForm() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-8">
+        <div className="min-h-screen bg-gray-900 px-4 py-8">
         
-            <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="max-w-3xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
                 <div className="flex items-center space-x-3 mb-6">
                     <div className="p-2 bg-red-500 rounded-md">
                         <Bug className="text-white" size={24} />
                     </div>
                     <div>
-                        <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
+                        <h1 className="text-xl font-semibold text-white">
                             Submit a Security Vulnerability
                         </h1>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-400">
                             Help us understand the security issue by filling in the details below.
                         </p>
                     </div>
@@ -70,7 +70,7 @@ export default function ReportForm() {
                     <div>
                         <label
                             htmlFor="title"
-                            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                            className="block text-sm font-medium text-gray-300"
                         >
                             <div className="flex justify-between items-center">
                                 <span>
@@ -100,9 +100,9 @@ export default function ReportForm() {
                             placeholder="e.g., XSS Vulnerability in Login Form"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className={`mt-1 w-full px-3 py-2 rounded-md border shadow-sm focus:outline-none sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 ${errors.title
+                            className={`mt-1 w-full px-3 py-2 rounded-md border shadow-sm focus:outline-none sm:text-sm bg-gray-700 text-gray-100 ${errors.title
                                 ? "border-red-500 focus:ring-red-500"
-                                : "border-gray-300 dark:border-gray-600 focus:ring-blue-500"
+                                : "border-gray-600 focus:ring-blue-500"
                                 }`}
                         />
                         {errors.title && (
@@ -111,16 +111,16 @@ export default function ReportForm() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <label className="block text-sm font-medium text-gray-300">
                             Description (Markdown supported) <span className="text-red-500">*</span>
                         </label>
-                        <div className="mt-1 rounded-md border dark:border-gray-600 overflow-hidden">
+                        <div className="mt-1 rounded-md border border-gray-600 overflow-hidden">
                             <MDEditor
                                 value={description}
                                 onChange={setDescription}
                                 height={300}
                                 previewOptions={{
-                                    className: "bg-white dark:bg-gray-800 dark:text-gray-100",
+                                    className: "bg-gray-800 text-gray-100",
                                 }}
                             />
                         </div>
