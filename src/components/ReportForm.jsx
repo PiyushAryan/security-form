@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import MDEditor from "@uiw/react-md-editor";
 import { toast } from "react-hot-toast";
-import { Bug, SendHorizontal, Forward ,Copy, Check } from "lucide-react";
+import { Bug, SendHorizontal, Forward, Copy, Check, Sun, Moon} from "lucide-react";
 
 export default function ReportForm() {
     const IssueID = `VX-${nanoid(5)}`;
@@ -10,6 +10,7 @@ export default function ReportForm() {
     const [description, setDescription] = useState("");
     const [copied, setCopied] = useState(false);
     const [errors, setErrors] = useState({});
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -49,6 +50,7 @@ export default function ReportForm() {
 
     return (
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-8">
+        
             <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center space-x-3 mb-6">
                     <div className="p-2 bg-red-500 rounded-md">
@@ -67,31 +69,31 @@ export default function ReportForm() {
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
                     <div>
                         <label
-      htmlFor="title"
-      className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-    >
-      <div className="flex justify-between items-center">
-        <span>
-          Vulnerability Title <span className="text-red-500">*</span>
-        </span>
-        <div className="flex items-center gap-1">
-          <span className="text-slate-300 font-mono text-xs">
-            Issue Ref: {IssueID}
-          </span>
-          <button
-            onClick={handleCopy}
-            type="button"
-            className="hover:text-blue-500"
-            title="Copy to clipboard"
-          >
-            <Copy className="w-4 h-4" />
-          </button>
-          {copied && (
-            <span className="text-green-400 text-xs ml-1"><Check w-4 h-4/></span>
-          )}
-        </div>
-      </div>
-    </label>
+                            htmlFor="title"
+                            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                        >
+                            <div className="flex justify-between items-center">
+                                <span>
+                                    Vulnerability Title <span className="text-red-500">*</span>
+                                </span>
+                                <div className="flex items-center gap-1">
+                                    <span className="text-slate-300 font-mono text-xs">
+                                        Issue Ref: {IssueID}
+                                    </span>
+                                    <button
+                                        onClick={handleCopy}
+                                        type="button"
+                                        className="hover:text-blue-500"
+                                        title="Copy to clipboard"
+                                    >
+                                        <Copy className="w-4 h-4" />
+                                    </button>
+                                    {copied && (
+                                        <span className="text-green-400 text-xs ml-1"><Check w-4 h-4 /></span>
+                                    )}
+                                </div>
+                            </div>
+                        </label>
                         <input
                             id="title"
                             type="text"
@@ -140,6 +142,7 @@ export default function ReportForm() {
             </div>
             <p className="text-xs text-gray-400 mt-6 text-center">
                 All reports are treated confidentially.
+                dark mode is enabled by default.
             </p>
         </div>
     );

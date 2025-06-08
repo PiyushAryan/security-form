@@ -6,7 +6,8 @@ function App() {
 
   return (
     <>
-    <div className="min-h-screen bg-gray-900 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 py-8">
+    
       <ReportForm />
       <Toaster position='top:right' />
     </div>
