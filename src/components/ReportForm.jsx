@@ -443,7 +443,7 @@ const ReportForm = () => {
                     <div className="px-6 py-4 bg-slate-750 border-t border-slate-700 rounded-b-lg">
                         <div className="flex items-center justify-between">
                             <p className="text-slate-600 dark:text-slate-400  text-sm">
-                                For encrypted reports, use our PGP key.
+                                For encrypted reports, use our <a className='text-blue-700' href='#'>PGP Key</a>.
                             </p>
                             <button
                                 type="submit"
