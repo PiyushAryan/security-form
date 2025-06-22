@@ -169,21 +169,20 @@ const ReportForm = () => {
 
     return (
         <>
-  <div className="flex justify-end px-4">
-  <button
-    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-    className="p-3 rounded-full bg-slate-800 dark:bg-slate-400 text-yellow-400 dark:text-slate-800 text-2xl shadow-md hover:scale-110 hover:shadow-lg transition-all duration-300"
-    aria-label="Toggle theme"
-  >
-    <span
-      className={`inline-block transition-transform duration-300 ease-in-out ${
-        theme === "dark" ? "rotate-0" : "rotate-180"
-      }`}
-    >
-      {theme === "dark" ? <LuMoon /> : <LuSun />}
-    </span>
-  </button>
-</div>
+            <div className="flex justify-end px-4">
+                <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="p-3 rounded-full bg-slate-800 dark:bg-slate-400 text-yellow-400 dark:text-slate-800 text-2xl shadow-md hover:scale-110 hover:shadow-lg transition-all duration-300"
+                    aria-label="Toggle theme"
+                >
+                    <span
+                        className={`inline-block transition-transform duration-300 ease-in-out ${theme === "dark" ? "rotate-0" : "rotate-180"
+                            }`}
+                    >
+                        {theme === "dark" ? <LuMoon /> : <LuSun />}
+                    </span>
+                </button>
+            </div>
 
 
             <div className="max-w-4xl mx-auto">
@@ -229,7 +228,7 @@ const ReportForm = () => {
                                 Severity <span className="text-slate-600 dark:text-slate-500 ml-1">(Optional)</span>
                             </label>
                             <div className="flex gap-4">
-                                {['Low', 'Medium', 'High', 'Critical','None'].map((level) => (
+                                {['Low', 'Medium', 'High', 'Critical', 'None'].map((level) => (
                                     <label key={level} className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-300">
                                         <input
                                             type="radio"
@@ -357,25 +356,40 @@ const ReportForm = () => {
                             </p>
                         </div>
 
-                    
+
                         <div>
                             <label className="text-sm font-medium text-slate-600 dark:text-slate-300 mb-2 block">
                                 Steps to Reproduce *
                             </label>
                             <div className="rounded-lg overflow-hidden border border-slate-600 bg-slate-100 dark:bg-slate-700">
-  <MDEditor
-    value={formData.stepsToReproduce}
-    onChange={(value) => handleInputChange('stepsToReproduce', value || '')}
-    preview="edit"
-    hideToolbar={false}
-    height={200}
-    data-color-mode={theme === "dark" ? "dark" : "light"} // this switches the editor theme
-    className="!bg-slate-100 dark:!bg-slate-700 !text-black dark:!text-white !border-none"
-  />
-</div>
+                                <MDEditor
+                                    value={formData.stepsToReproduce}
+                                    onChange={(value) => handleInputChange('stepsToReproduce', value || '')}
+                                    preview="edit"
+                                    hideToolbar={false}
+                                    height={200}
+                                    data-color-mode={theme === "dark" ? "dark" : "light"} // this switches the editor theme
+                                    className="!bg-slate-100 dark:!bg-slate-700 !text-black dark:!text-white !border-none"
+                                />
+                            </div>
 
                             <p className="text-slate-500 text-sm mt-1">
                                 Provide detailed, step-by-step instructions. Use markdown formatting for clarity.
+                            </p>
+                        </div>
+
+                        <div>
+                            <label className="text-sm font-medium text-slate-600 dark:text-slate-300 mb-2 block">
+                                Upload Proof of Concept Video <span className="text-slate-500 ml-1">(Optional)</span>
+                            </label>
+                            <input
+                                type="file"
+                                accept="video/*"
+                                onChange={(e) => handleInputChange('videoFile', e.target.files?.[0] || null)}
+                                className="w-full px-4 py-2 bg-slate-300 dark:bg-slate-700 text-white border border-slate-600 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 transition-colors"
+                            />
+                            <p className="text-slate-500 text-sm mt-1">
+                                Upload a short screen recording or demo showing the bug reproduction steps.
                             </p>
                         </div>
 
